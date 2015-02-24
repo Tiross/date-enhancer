@@ -1,4 +1,4 @@
 before_script:
   - npm install
 
-script: grunt test --verbose --force
+script: grunt --verbose
