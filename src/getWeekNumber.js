@@ -1,6 +1,8 @@
 
 // Based on https://en.wikipedia.org/wiki/ISO_week_date#Calculating_the_week_number_of_a_given_date
 
+'use strict';
+
 if ('function' !== Date.prototype.getWeekNumber) {
   Date.prototype.getWeekNumber = function () {
     var firstDay = new Date(this.getFullYear(), 0, 1);
