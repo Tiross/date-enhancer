@@ -31,7 +31,8 @@ module.exports = function(grunt) {
         quotmark: 'single',
         singleGroups: true,
         undef: true,
-        unused: true
+        unused: true,
+        '-W126': true,
       }
     },
 
@@ -92,6 +93,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('test', ['uglify', 'connect', 'qunit']);
+  grunt.registerTask('test', ['uglify', 'qunit']);
   grunt.registerTask('default', ['jshint', 'test']);
+
 };
