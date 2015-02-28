@@ -1,5 +1,5 @@
 
-QUnit.test('test getWeekNumber', function (assert) {
+QUnit.test('Test method "getWeekNumber"', function (assert) {
   var provider = [
     {date: '2015-01-01', number: 201501},
     {date: '2015-12-31', number: 201553, reason: 'Week 53'},

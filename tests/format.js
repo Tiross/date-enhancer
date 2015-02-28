@@ -8,7 +8,7 @@ var second = 12;
 
 var date = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
 
-QUnit.test('test years', function (assert) {
+QUnit.test('Test method "format" / years', function (assert) {
   assert.equal(date.format('Y'), year, '`Y` / A full numeric representation of a year, 4 digits');
   assert.equal(date.format('y'), year % 100, '`y` / A two digit representation of a year');
 
@@ -21,7 +21,7 @@ QUnit.test('test years', function (assert) {
   assert.equal(new Date(2016, 0).format('o'), '2015', '`o` / 1st of 2016 is in the last week of 2015');
 });
 
-QUnit.test('test month', function (assert) {
+QUnit.test('Test method "format" / month', function (assert) {
   assert.equal(date.format('m'), '01', '`m` / Numeric representation of a month, with leading zeros');
   assert.equal(date.format('n'), '1', '`n` / Numeric representation of a month, without leading zeros');
 
