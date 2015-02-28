@@ -21,13 +21,12 @@
     Date.locale.use = Date.locale.use || 'en';
 
     Date.prototype.format = function (pattern) {
-      var lpad = function (string, length, pad) {
-        length = typeof length === 'undefined' ? 0 : length;
-        pad    = typeof pad === 'undefined' ? '0' : pad;
+      var leadingZeros = function (string, length) {
+        length = typeof length === 'undefined' ? 2 : length;
         string = string.toString();
 
         while (string.length < length) {
-          string = pad + string;
+          string = '0' + string;
         }
 
         return string;
@@ -60,7 +59,7 @@
           return this.getMonth() + 1;
         },
         m: function () { // With leading zero
-          return lpad(this.format('n'), 2);
+          return leadingZeros(this.format('n'));
         },
         M: function () { // 3 letters
           return Date.locale[ Date.locale.use ].months.shorts[ this.getMonth() ];
@@ -79,7 +78,7 @@
 
         // Days
         d: function () { // With leading zero
-          return lpad(this.getDate(), 2);
+          return leadingZeros(this.getDate());
         },
         j: function () { // Without leading zero
           return this.getDate();
@@ -127,19 +126,19 @@
           return this.getHours();
         },
         h: function () { // Hours, 12h, with leading zeros
-          return lpad(this.format('g'), 2);
+          return leadingZeros(this.format('g'));
         },
         H: function () { // Hours, 24h, with leading zeros
-          return lpad(this.getHours(), 2);
+          return leadingZeros(this.getHours());
         },
         i: function () { // Minutes, with leading zeros
-          return lpad(this.getMinutes(), 2);
+          return leadingZeros(this.getMinutes());
         },
         s: function () { // Seconds, with leading zeros
-          return lpad(this.getSeconds(), 2);
+          return leadingZeros(this.getSeconds());
         },
         u: function () { // Microseconds
-          return lpad(this.getMilliseconds() * 1e3, 6);
+          return leadingZeros(this.getMilliseconds() * 1e3, 6);
         }
       };
       var that = this;
