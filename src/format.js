@@ -56,38 +56,38 @@
         },
 
         // Month
-        n: function () {
+        n: function () { // No leading zero
           return this.getMonth() + 1;
         },
-        m: function () {
+        m: function () { // With leading zero
           return lpad(this.format('n'), 2);
         },
-        M: function () {
+        M: function () { // 3 letters
           return Date.locale[ Date.locale.use ].months.shorts[ this.getMonth() ];
         },
-        F: function () {
+        F: function () { // Full text
           return Date.locale[ Date.locale.use ].months.longs[ this.getMonth() ];
         },
-        t: function () {
+        t: function () { // Nb of days
           return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate();
         },
 
         // Weeks
-        W: function () {
+        W: function () { // Week number
           return this.getWeekNumber() % 100;
         },
 
         // Days
-        d: function () {
+        d: function () { // With leading zero
           return lpad(this.getDate(), 2);
         },
-        D: function () {
-          return Date.locale[ Date.locale.use ].days.shorts[ this.getDay() ];
-        },
-        j: function () {
+        j: function () { // Without leading zero
           return this.getDate();
         },
-        l: function () {
+        D: function () { // 3 letters
+          return Date.locale[ Date.locale.use ].days.shorts[ this.getDay() ];
+        },
+        l: function () { // Full text
           return Date.locale[ Date.locale.use ].days.longs[ this.getDay() ];
         }
 /* TODO
