@@ -89,13 +89,26 @@
         },
         l: function () { // Full text
           return Date.locale[ Date.locale.use ].days.longs[ this.getDay() ];
+        },
+        N: function () { // Day of week ISO
+          var dow = this.getDay();
+
+          return 0 === dow ? 7 : dow;
+        },
+        S: function () { // Ordinal suffix
+          var suffix = Date.locale[ Date.locale.use ].suffixes[ this.getDate() ];
+
+          return typeof suffix === 'undefined' ? Date.locale[ Date.locale.use ].suffixes[0] : suffix;
+        },
+        w: function () { // Day of week
+          return this.getDay();
+        },
+        z: function () { // Day of year
+          var ref = new Date(this.getFullYear(), 0, 0);
+          var elapsed = this.getTime() - ref.getTime();
+
+          return Math.floor(elapsed / 864e5) - 1;
         }
-/* TODO
-N	ISO-8601 numeric representation of the day of the week (added in PHP 5.1.0)	1 (for Monday) through 7 (for Sunday)
-S	English ordinal suffix for the day of the month, 2 characters	st, nd, rd or th. Works well with j
-w	Numeric representation of the day of the week	0 (for Sunday) through 6 (for Saturday)
-z	The day of the year (starting from 0)	0 through 365
-*/
       };
       var that = this;
 
