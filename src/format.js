@@ -108,6 +108,38 @@
           var elapsed = this.getTime() - ref.getTime();
 
           return Math.floor(elapsed / 864e5) - 1;
+        },
+
+        // Time
+        a: function () { // am / pm
+          return this.getHours() < 12 ? 'am' : 'pm';
+        },
+        A: function () { // am / pm
+          return this.format('a').toUpperCase();
+        },
+        B: function () { // swatch internet time
+          return Math.floor((this.getUTCSeconds() + (this.getUTCMinutes() * 60) + (this.getUTCHours() * 3600)) / 86.4);
+        },
+        g: function () { // Hours, 12h, without leading zeros
+          return this.getHours() % 12;
+        },
+        G: function () { // Hours, 24h, without leading zeros
+          return this.getHours();
+        },
+        h: function () { // Hours, 12h, with leading zeros
+          return lpad(this.format('g'), 2);
+        },
+        H: function () { // Hours, 24h, with leading zeros
+          return lpad(this.getHours(), 2);
+        },
+        i: function () { // Minutes, with leading zeros
+          return lpad(this.getMinutes(), 2);
+        },
+        s: function () { // Seconds, with leading zeros
+          return lpad(this.getSeconds(), 2);
+        },
+        u: function () { // Microseconds
+          return lpad(this.getMilliseconds() * 1e3, 6);
         }
       };
       var that = this;

@@ -144,3 +144,38 @@ QUnit.test('Test method "format" / day', function (assert) {
   assert.equal(saturday.format('z'), 2, '`z` / The day of the year (starting from 0) / Saturday');
   assert.equal(sunday.format('z'), 3, '`z` / The day of the year (starting from 0) / Sunday');
 });
+
+QUnit.test('Test method "format" / time', function (assert) {
+  var amDate = new Date(2015, 0, 1, 9, 59, 3, 12);
+  var pmDate = new Date(2015, 0, 1, 20, 9, 40, 345);
+
+  assert.equal(amDate.format('a'), 'am', '`a` / Lowercase Ante meridiem and Post meridiem	/ am');
+  assert.equal(pmDate.format('a'), 'pm', '`a` / Lowercase Ante meridiem and Post meridiem	/ pm');
+
+  assert.equal(amDate.format('A'), 'AM', '`A` / Uppercase Ante meridiem and Post meridiem	/ AM');
+  assert.equal(pmDate.format('A'), 'PM', '`A` / Uppercase Ante meridiem and Post meridiem	/ PM');
+
+  assert.equal(amDate.format('B'), 374, '`B` / Swatch Internet time / Morning');
+  assert.equal(pmDate.format('B'), 798, '`B` / Swatch Internet time / Afternoon');
+
+  assert.equal(amDate.format('g'), 9, '`g` / 12-hour format of an hour without leading zeros / Morning');
+  assert.equal(pmDate.format('g'), 8, '`g` / 12-hour format of an hour without leading zeros / Afternoon');
+
+  assert.equal(amDate.format('G'), 9, '`G` / 24-hour format of an hour without leading zeros / Morning');
+  assert.equal(pmDate.format('G'), 20, '`G` / 24-hour format of an hour without leading zeros / Afternoon');
+
+  assert.equal(amDate.format('h'), '09', '`h` / 12-hour format of an hour with leading zeros / Morning');
+  assert.equal(pmDate.format('h'), '08', '`h` / 12-hour format of an hour with leading zeros / Afternoon');
+
+  assert.equal(amDate.format('H'), '09', '`H` / 24-hour format of an hour with leading zeros / Morning');
+  assert.equal(pmDate.format('H'), '20', '`H` / 24-hour format of an hour with leading zeros / Afternoon');
+
+  assert.equal(amDate.format('i'), '59', '`i` / Minutes with leading zeros / Morning');
+  assert.equal(pmDate.format('i'), '09', '`i` / Minutes with leading zeros / Afternoon');
+
+  assert.equal(amDate.format('s'), '03', '`s` / Seconds with leading zeros / Morning');
+  assert.equal(pmDate.format('s'), '40', '`s` / Seconds with leading zeros / Afternoon');
+
+  assert.equal(amDate.format('u'), '012000', '`s` / Microseconds / Morning');
+  assert.equal(pmDate.format('u'), '345000', '`s` / Microseconds / Afternoon');
+});

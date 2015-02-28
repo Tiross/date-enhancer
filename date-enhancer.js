@@ -62,14 +62,60 @@
                 d: function() {
                     return lpad(this.getDate(), 2);
                 },
-                D: function() {
-                    return Date.locale[Date.locale.use].days.shorts[this.getDay()];
-                },
                 j: function() {
                     return this.getDate();
                 },
+                D: function() {
+                    return Date.locale[Date.locale.use].days.shorts[this.getDay()];
+                },
                 l: function() {
                     return Date.locale[Date.locale.use].days.longs[this.getDay()];
+                },
+                N: function() {
+                    var dow = this.getDay();
+                    return 0 === dow ? 7 : dow;
+                },
+                S: function() {
+                    var suffix = Date.locale[Date.locale.use].suffixes[this.getDate()];
+                    return typeof suffix === "undefined" ? Date.locale[Date.locale.use].suffixes[0] : suffix;
+                },
+                w: function() {
+                    return this.getDay();
+                },
+                z: function() {
+                    var ref = new Date(this.getFullYear(), 0, 0);
+                    var elapsed = this.getTime() - ref.getTime();
+                    return Math.floor(elapsed / 864e5) - 1;
+                },
+                a: function() {
+                    return this.getHours() < 12 ? "am" : "pm";
+                },
+                A: function() {
+                    return this.format("a").toUpperCase();
+                },
+                B: function() {
+                    return Math.floor((this.getUTCSeconds() + this.getUTCMinutes() * 60 + this.getUTCHours() * 3600) / 86.4);
+                },
+                g: function() {
+                    return this.getHours() % 12;
+                },
+                G: function() {
+                    return this.getHours();
+                },
+                h: function() {
+                    return lpad(this.format("g"), 2);
+                },
+                H: function() {
+                    return lpad(this.getHours(), 2);
+                },
+                i: function() {
+                    return lpad(this.getMinutes(), 2);
+                },
+                s: function() {
+                    return lpad(this.getSeconds(), 2);
+                },
+                u: function() {
+                    return lpad(this.getMilliseconds() * 1e3, 6);
                 }
             };
             var that = this;
