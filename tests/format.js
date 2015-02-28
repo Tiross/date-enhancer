@@ -8,7 +8,7 @@ var second = 12;
 
 var date = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
 
-QUnit.test('Test method "format" / years', function (assert) {
+QUnit.test('Test method "format" / year', function (assert) {
   assert.equal(date.format('Y'), year, '`Y` / A full numeric representation of a year, 4 digits');
   assert.equal(date.format('y'), year % 100, '`y` / A two digit representation of a year');
 
@@ -64,4 +64,16 @@ QUnit.test('Test method "format" / month', function (assert) {
   assert.equal(new Date(2015, 9).format('t'), 31, '`t` / October');
   assert.equal(new Date(2015, 10).format('t'), 30, '`t` / November');
   assert.equal(new Date(2015, 11).format('t'), 31, '`t` / December');
+});
+
+QUnit.test('Test method "format" / week', function (assert) {
+  assert.equal(date.format('W'), 1, '`W` / Week of 1st day of 2015 => 1');
+  assert.equal(new Date(2016, 0).format('W'), 53, '`W` / Week of 1st day of 2016 => 53');
+});
+
+QUnit.test('Test method "format" / day', function (assert) {
+  assert.equal(date.format('d'), '01', '`d` / Day of the month, 2 digits with leading zeros');
+  assert.equal(date.format('D'), 'Thu', '`D` / A textual representation of a day, three letters');
+  assert.equal(date.format('j'), '1', '`j` / Day of the month without leading zeros');
+  assert.equal(date.format('l'), 'Thursday', '`l` / A full textual representation of the day of the week');
 });

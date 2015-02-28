@@ -18,6 +18,7 @@
             var lpad = function(string, length, pad) {
                 length = typeof length === "undefined" ? 0 : length;
                 pad = typeof pad === "undefined" ? "0" : pad;
+                string = string.toString();
                 while (string.length < length) {
                     string = pad + string;
                 }
@@ -54,6 +55,21 @@
                 },
                 t: function() {
                     return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate();
+                },
+                W: function() {
+                    return this.getWeekNumber() % 100;
+                },
+                d: function() {
+                    return lpad(this.getDate(), 2);
+                },
+                D: function() {
+                    return Date.locale[Date.locale.use].days.shorts[this.getDay()];
+                },
+                j: function() {
+                    return this.getDate();
+                },
+                l: function() {
+                    return Date.locale[Date.locale.use].days.longs[this.getDay()];
                 }
             };
             var that = this;

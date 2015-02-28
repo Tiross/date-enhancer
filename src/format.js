@@ -23,7 +23,8 @@
     Date.prototype.format = function (pattern) {
       var lpad = function (string, length, pad) {
         length = typeof length === 'undefined' ? 0 : length;
-        pad = typeof pad === 'undefined' ? '0' : pad;
+        pad    = typeof pad === 'undefined' ? '0' : pad;
+        string = string.toString();
 
         while (string.length < length) {
           string = pad + string;
@@ -69,7 +70,32 @@
         },
         t: function () {
           return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate();
+        },
+
+        // Weeks
+        W: function () {
+          return this.getWeekNumber() % 100;
+        },
+
+        // Days
+        d: function () {
+          return lpad(this.getDate(), 2);
+        },
+        D: function () {
+          return Date.locale[ Date.locale.use ].days.shorts[ this.getDay() ];
+        },
+        j: function () {
+          return this.getDate();
+        },
+        l: function () {
+          return Date.locale[ Date.locale.use ].days.longs[ this.getDay() ];
         }
+/* TODO
+N	ISO-8601 numeric representation of the day of the week (added in PHP 5.1.0)	1 (for Monday) through 7 (for Sunday)
+S	English ordinal suffix for the day of the month, 2 characters	st, nd, rd or th. Works well with j
+w	Numeric representation of the day of the week	0 (for Sunday) through 6 (for Saturday)
+z	The day of the year (starting from 0)	0 through 365
+*/
       };
       var that = this;
 
