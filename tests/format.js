@@ -179,3 +179,24 @@ QUnit.test('Test method "format" / time', function (assert) {
   assert.equal(amDate.format('u'), '012000', '`s` / Microseconds / Morning');
   assert.equal(pmDate.format('u'), '345000', '`s` / Microseconds / Afternoon');
 });
+
+QUnit.test('Test method "format" / Timezone', function (assert) {
+  assert.equal(date.format('e'), 'CET', '`e` / Timezone identifier');
+
+  assert.equal(date.format('I'), '0', '`I` / Is in DST / false');
+  assert.equal((new Date(2015, 3)).format('I'), '1', '`I` / Is in DST / April 1st is true in France');
+
+  assert.equal(date.format('O'), date.format('I') === '1' ? '+0200' : '+0100', '`O` / Difference to Greenwich time');
+
+  assert.equal(date.format('P'), date.format('I') === '1' ? '+02:00' : '+01:00', '`P` / Difference to Greenwich time wtih colon');
+
+  assert.equal(date.format('T'), 'CET', '`T` / Timezone abbreviation');
+
+  assert.equal(date.format('Z'), date.format('I') === '1' ? 7200 : 3600, '`Z` / Timezone offset in seconds');
+});
+
+QUnit.test('Test method "format" / Full date&time', function (assert) {
+  assert.equal(date.format('c'), '2015-01-01T11:30:12+01:00', '`c` / ISO 8601');
+  assert.equal(date.format('r'), 'Thu, 1 Jan 2015 11:30:12 +0100', '`r` / RFC 2822');
+  assert.equal(date.format('U'), 1420108212, '`U` / Seconds since the Unix Epoch');
+});

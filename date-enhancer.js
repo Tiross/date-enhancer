@@ -115,6 +115,39 @@
                 },
                 u: function() {
                     return leadingZeros(this.getMilliseconds() * 1e3, 6);
+                },
+                e: function() {
+                    return new Date().toString().match(/\((.+)\)/)[1];
+                },
+                I: function() {
+                    var january = new Date(this.getFullYear(), 0);
+                    var july = new Date(this.getFullYear(), 6);
+                    var maxOffset = Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
+                    return this.getTimezoneOffset() !== maxOffset ? "1" : "0";
+                },
+                O: function() {
+                    return this.format("P").replace(":", "");
+                },
+                P: function() {
+                    var offset = this.getTimezoneOffset();
+                    var sign = offset < 0 ? "+" : "-";
+                    offset = Math.abs(offset);
+                    return sign + leadingZeros(Math.floor(offset / 60)) + ":" + leadingZeros(offset % 60);
+                },
+                T: function() {
+                    return this.format("e");
+                },
+                Z: function() {
+                    return -60 * this.getTimezoneOffset();
+                },
+                c: function() {
+                    return this.format("Y-m-d\\TH:i:sP");
+                },
+                r: function() {
+                    return this.format("D, j M Y H:i:s O");
+                },
+                U: function() {
+                    return Math.floor(this.getTime() / 1e3);
                 }
             };
             var that = this;

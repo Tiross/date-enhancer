@@ -139,6 +139,49 @@
         },
         u: function () { // Microseconds
           return leadingZeros(this.getMilliseconds() * 1e3, 6);
+        },
+
+        // Timezone
+        e: function () { // TZ Name
+          return (new Date()).toString().match(/\((.+)\)/)[1];
+        },
+        I: function () { // Is in DST
+          // Based on http://stackoverflow.com/a/11888430
+
+          var january = new Date(this.getFullYear(), 0);
+          var july = new Date(this.getFullYear(), 6);
+
+          var maxOffset = Math.max(january.getTimezoneOffset(), july.getTimezoneOffset());
+
+          return this.getTimezoneOffset() !== maxOffset ? '1' : '0';
+        },
+        O: function () { // Diff to GMT +0000 style
+          return this.format('P').replace(':', '');
+        },
+        P: function () { // Diff to GMT +00:00 style
+          var offset = this.getTimezoneOffset();
+          var sign = offset < 0 ? '+' : '-';
+
+          offset = Math.abs(offset);
+
+          return sign + leadingZeros(Math.floor(offset / 60)) + ':' + leadingZeros(offset % 60);
+        },
+        T: function () { // TZ Abbr, same as TZ name, JS is a shame on TZ manipulation
+          return this.format('e');
+        },
+        Z: function () { // TZ offset in seconds
+          return -60 * this.getTimezoneOffset();
+        },
+
+        // Full Date/Time
+        c: function () { // ISO 8601
+          return this.format('Y-m-d\\TH:i:sP');
+        },
+        r: function () { // RFC 2822
+          return this.format('D, j M Y H:i:s O');
+        },
+        U: function () { // UNIX Timestamp
+          return Math.floor(this.getTime() / 1000);
         }
       };
       var that = this;
