@@ -53,7 +53,7 @@ The following characters are recognized in the format parameter string.
 
 #### Day
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 d | Day of the month, 2 digits with leading zeros | 01 to 31
 D | A textual representation of a day, three letters | Mon through Sun
@@ -67,14 +67,14 @@ z | The day of the year (starting from 0) | 0 through 365
 
 #### Week
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 W | ISO-8601 week number of year, weeks starting on Monday | 42 (the 42nd week in the year)
 
 
 #### Month
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 F | A full textual representation of a month, such as January or March | January through December
 m | Numeric representation of a month, with leading zeros | 01 through 12
@@ -85,7 +85,7 @@ t | Number of days in the given month | 28 through 31
 
 #### Year
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 L | Whether it's a leap year | 1 if it is a leap year, 0 otherwise.
 o | ISO-8601 year number | 1999 or 2003
@@ -95,7 +95,7 @@ y | A two digit representation of a year | Examples: 99 or 03
 
 #### Time
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 a | Lowercase Ante meridiem and Post meridiem | am or pm
 A | Uppercase Ante meridiem and Post meridiem | AM or PM
@@ -111,10 +111,10 @@ u | Microseconds | 654000
 
 #### Timezone
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 e | Timezone identifier | UTC, GMT
-I<br>uppercase "i" | Whether or not the date is in daylight saving time | 1 if Daylight Saving Time, 0 otherwise.
+I<br>uppercase "i" | Whether or not the date is in daylight saving time | 1 if in DST, 0 otherwise.
 O | Difference to Greenwich time (GMT) in hours | +0200
 P | Difference to Greenwich time (GMT) with colon between hours and minutes | +02:00
 T | Timezone abbreviation | EST, MDT ...
@@ -123,8 +123,8 @@ Z | Timezone offset in seconds | -43200 through 50400
 
 #### Full Date/Time
 
-format character | Description | Example
+character | Description | Example
 :---------------:|-------------|--------
 c | ISO 8601 date | 2004-02-12T15:19:21+00:00
 r | RFC 2822 formatted date | Thu, 21 Dec 2000 16:01:07 +0200
-U | Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT) |
+U | Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT) | 1420108212
