@@ -200,3 +200,8 @@ QUnit.test('Test method "format" / Full date&time', function (assert) {
   assert.equal(date.format('r'), 'Thu, 1 Jan 2015 11:30:12 +0100', '`r` / RFC 2822');
   assert.equal(date.format('U'), 1420108212, '`U` / Seconds since the Unix Epoch');
 });
+
+QUnit.test('Test method "format" / Other', function (assert) {
+  assert.equal(date.format('\\l\\e d/m/Y \\à H:i:s'), 'le 01/01/2015 à 11:30:12', 'Composed');
+  assert.equal(date.format('\\\\d\\d'), '\\01d', 'Escaping the escaper');
+});

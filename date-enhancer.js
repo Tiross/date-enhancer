@@ -152,7 +152,7 @@
             };
             var that = this;
             return pattern.replace(/\\?(.)/g, function(character) {
-                return charValues[character] ? charValues[character].call(that) : character;
+                return charValues[character] ? charValues[character].call(that) : character.replace(/^\\(.+)/, "$1");
             });
         };
     }
