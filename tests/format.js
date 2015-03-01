@@ -143,6 +143,9 @@ QUnit.test('Test method "format" / day', function (assert) {
   assert.equal(friday.format('z'), 1, '`z` / The day of the year (starting from 0) / Friday');
   assert.equal(saturday.format('z'), 2, '`z` / The day of the year (starting from 0) / Saturday');
   assert.equal(sunday.format('z'), 3, '`z` / The day of the year (starting from 0) / Sunday');
+
+  assert.equal((new Date(2016, 0, 0)).format('z'), 364, '`z` / The day of the year (starting from 0) / Last day of 2015');
+  assert.equal((new Date(2001, 0, 0)).format('z'), 365, '`z` / The day of the year (starting from 0) / Last day of 2000 (leap year)');
 });
 
 QUnit.test('Test method "format" / time', function (assert) {
@@ -204,4 +207,5 @@ QUnit.test('Test method "format" / Full date&time', function (assert) {
 QUnit.test('Test method "format" / Other', function (assert) {
   assert.equal(date.format('\\l\\e d/m/Y \\à H:i:s'), 'le 01/01/2015 à 11:30:12', 'Composed');
   assert.equal(date.format('\\\\d\\d'), '\\01d', 'Escaping the escaper');
+  assert.equal(date.format('F jS'), 'January 1st', 'January 1st');
 });
