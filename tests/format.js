@@ -208,4 +208,5 @@ QUnit.test('Test method "format" / Other', function (assert) {
   assert.equal(date.format('\\l\\e d/m/Y \\à H:i:s'), 'le 01/01/2015 à 11:30:12', 'Composed');
   assert.equal(date.format('\\\\d\\d'), '\\01d', 'Escaping the escaper');
   assert.equal(date.format('F jS'), 'January 1st', 'January 1st');
+  assert.equal((new Date(2015, 4, 4)).format('F \\t\\h\\e jS \\b\\e \\y\\o\\u'), 'May the 4th be you', 'Star Wars day');
 });
