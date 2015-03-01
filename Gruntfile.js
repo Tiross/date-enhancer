@@ -44,7 +44,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'date-enhancer.js': ['src/*.js']
+          'build/date-enhancer.js': ['src/*.js']
         }
       },
       minified: {
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'date-enhancer.min.js': ['src/*.js']
+          'build/date-enhancer.min.js': ['src/*.js']
         }
       }
     },
@@ -78,8 +78,8 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['*', '*/*', '!node_modules/*', '!date-enhancer*'],
-        tasks: ['default', 'watch'],
+        files: ['*', '*/*', '!node_modules/*', '!build/*'],
+        tasks: ['default'],
         options: {
           interrupt: true,
         },
