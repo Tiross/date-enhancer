@@ -4,9 +4,19 @@ Date enhancer
 
 [![Build Status](https://travis-ci.org/Tiross/date-enhancer.svg?branch=master)](https://travis-ci.org/Tiross/date-enhancer)
 
+How to use it ?
+------------------
 
-isValid
----------
+You'll find two file in the build directory.
+
+Copy them to your JavaScript folder and add `<script src="js-folder/date-enhancer.min.js"></script>` in your HTML file.
+
+
+What's new ?
+---------------
+
+### isValid
+
 
 Check if a created instance of `Date` is a valid date.
 
@@ -24,8 +34,8 @@ if (invalidDate.isValid()) {
 }
 ```
 
-getWeekNumber
----------------
+### getWeekNumber
+
 
 Return the year and week number in the format `YYYYWW`.
 
@@ -35,8 +45,8 @@ var firstDayOf2016 = new Date(2016, 0);
 alert(firstDayOf2016.getWeekNumber()); // will show 201553
 ```
 
-format
---------
+### format
+
 
 `format` is a port of `date` function of PHP.
 
