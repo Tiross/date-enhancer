@@ -53,7 +53,7 @@ alert(firstDayOf2016.getWeekNumber()); // will show 201553
 You can use the same format pattern as defined on [PHP.net](http://php.net/manual/en/function.date.php).
 
 ```javascript
-var date = new Date(2015, 3, 4);
+var date = new Date(2015, 4, 4);
 
 alert(date.format('F \\t\\h\\e jS \\b\\e \\y\\o\\u')); // Star Wars day :)
 ```
