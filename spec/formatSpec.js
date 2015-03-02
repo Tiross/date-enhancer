@@ -115,4 +115,12 @@ describe('format spec', function () {
     });
   });
 
+  describe('formatting weeks', function () {
+    it('should return th number of the week with "W"', function () {
+      expect(new Date('2015-01-01').format('W')).toBe('1');
+      expect(new Date('2015-12-31').format('W')).toBe('53');
+      expect(new Date('2016-01-01').format('W')).toBe('53');
+    });
+  });
+
 });
