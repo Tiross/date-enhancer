@@ -16,23 +16,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['src/**/*.js'],
       options: {
-        bitwise: true,
-        camelcase: true,
-        curly: true,
-        enforceall: true,
-        eqeqeq: true,
-        freeze: false,
-        immed: true,
-        indent: 2,
-        newcap: true,
-        nocomma: false,
-        noempty: true,
-        nonbsp: true,
-        quotmark: 'single',
-        singleGroups: true,
-        undef: true,
-        unused: true,
-        '-W126': true,
+        jshintrc: '.jshintrc'
       }
     },
 
@@ -95,5 +79,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['uglify', 'connect', 'qunit']);
   grunt.registerTask('default', ['jshint', 'test']);
-
 };
