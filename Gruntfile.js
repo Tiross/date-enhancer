@@ -76,5 +76,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   grunt.registerTask('test', ['jshint', 'connect', 'jasmine']);
-  grunt.registerTask('default', ['uglify', 'test']);
+  grunt.registerTask('default', ['test', 'uglify']);
 };
