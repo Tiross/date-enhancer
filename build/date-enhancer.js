@@ -33,9 +33,9 @@
                 L: function() {
                     var year = this.getFullYear();
                     if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
-                        return "1";
+                        return 1;
                     }
-                    return "0";
+                    return 0;
                 },
                 o: function() {
                     return Math.floor(this.getWeekNumber() / 100);

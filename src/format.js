@@ -44,11 +44,11 @@
         L: function () { // Is a leap year
           var year = this.getFullYear();
 
-          if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-            return '1';
+          if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            return 1;
           }
 
-          return '0';
+          return 0;
         },
         o: function () { // Week year
           return Math.floor(this.getWeekNumber() / 100);
@@ -117,7 +117,7 @@
           return this.format('a').toUpperCase();
         },
         B: function () { // swatch internet time
-          return Math.floor((this.getUTCSeconds() + (this.getUTCMinutes() * 60) + (this.getUTCHours() * 3600)) / 86.4);
+          return Math.floor((this.getUTCSeconds() + this.getUTCMinutes() * 60 + this.getUTCHours() * 3600) / 86.4);
         },
         g: function () { // Hours, 12h, without leading zeros
           return this.getHours() % 12;

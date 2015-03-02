@@ -13,7 +13,7 @@
   "noempty": true,
   "nonbsp": true,
   "quotmark": "single",
-  "singleGroups": true,
+  "singleGroups": false,
   "undef": true,
   "unused": true,
   "node": true,
