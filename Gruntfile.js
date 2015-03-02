@@ -51,18 +51,16 @@ module.exports = function(grunt) {
       }
     },
 
-    qunit: {
-      files: ['test/**/*.html'],
-      options: {
-        urls: [
-          'http://127.0.0.1:8080/tests/index.html'
-        ]
+    jasmine : {
+      src : 'src/**/*.js',
+      options : {
+        specs : 'spec/**/*.js'
       }
     },
 
     watch: {
       scripts: {
-        files: ['*', '*/*', '!node_modules/*', '!build/*', '!*.md'],
+        files: ['src/*', 'spec/*', 'Gruntfile.js'],
         tasks: ['default'],
         options: {
           interrupt: true,
@@ -74,9 +72,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-  grunt.registerTask('test', ['uglify', 'connect', 'qunit']);
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('test', ['jshint', 'connect', 'jasmine']);
+  grunt.registerTask('default', ['uglify', 'test']);
 };
