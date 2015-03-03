@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['src/**/*.js'],
+      files: ['src/*.js'],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -52,9 +52,9 @@ module.exports = function(grunt) {
     },
 
     jasmine : {
-      src : 'src/**/*.js',
+      src : 'src/*.js',
       options : {
-        specs : 'spec/**/*.js'
+        specs : 'spec/*.js'
       }
     },
 
@@ -67,6 +67,16 @@ module.exports = function(grunt) {
         },
       },
     },
+
+    karma: {
+      unit: {
+        options: {
+          browsers: ['PhantomJS', 'Safari', 'Firefox'],
+          frameworks: ['jasmine'],
+          files: ['spec/*.js', 'src/*.js'],
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -74,6 +84,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('test', ['jshint', 'connect', 'jasmine']);
   grunt.registerTask('default', ['test', 'uglify']);
