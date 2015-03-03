@@ -310,4 +310,40 @@ describe('format spec', function () {
     });
   });
 
+  describe('formatting full dates and times', function () {
+    var date = new Date(2015, 0, 1, 11, 30, 12);
+
+    xit('should return a ISO 8601 representation of date and time with "c"', function () {
+      expect(date.format('c')).toBe('2015-01-01T11:30:12+01:00');
+    });
+
+    xit('should return a representation of date and time following RFC 2822 with "r"', function () {
+      expect(date.format('r')).toBe('Thu, 1 Jan 2015 11:30:12 +0100');
+    });
+
+    it('should return the number of seconds since January 1st 1979 with "U"', function () {
+      expect(date.format('U')).toBe('1420108212');
+    });
+  });
+
+  describe('formatting with composed pattern', function () {
+    var date = new Date(2015, 0, 1, 11, 30, 12);
+
+    xit('should return "le 01/01/2015 à 11:30:12"', function () {
+      expect(date.format('\\l\\e d/m/Y \\à H:i:s')).toBe('le 01/01/2015 à 11:30:12');
+    });
+
+    it('should return "\\01d"', function () {
+      expect(date.format('\\\\d\\d')).toBe('\\01d');
+    });
+
+    it('should return "January 1st"', function () {
+      expect(date.format('F jS')).toBe('January 1st');
+    });
+
+    it('will tell me when is the Star Wars day ;)', function () {
+      expect(new Date(2015, 4, 4).format('F \\t\\h\\e jS \\b\\e \\y\\o\\u')).toBe('May the 4th be you');
+    });
+  });
+
 });
