@@ -1,14 +1,12 @@
 describe('format spec', function () {
 
   describe('formatting years', function () {
-    var date = new Date(Date.UTC(1932, 0, 1, 10, 30, 12));
-
     it('should return a full represention of a year on 4 digits with "Y"', function () {
-      expect(date.format('Y')).toBe('1932');
+      expect(new Date(1932, 0).format('Y')).toBe('1932');
     });
 
     it('should return a 2 digits represention of a year with "y"', function () {
-      expect(date.format('y')).toBe('32');
+      expect(new Date(1932, 0).format('y')).toBe('32');
     });
 
     it('should return 1 or 0 if it\'s a leap year with "L"', function () {
@@ -18,7 +16,7 @@ describe('format spec', function () {
     });
 
     it('should return the year of the week with "o"', function () {
-      expect(date.format('o')).toBe('1931');
+      expect(new Date(1932, 0).format('o')).toBe('1931');
       expect(new Date(2016, 0).format('o')).toBe('2015');
     });
   });
