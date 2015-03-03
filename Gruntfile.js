@@ -75,6 +75,14 @@ module.exports = function(grunt) {
           frameworks: ['jasmine'],
           files: ['spec/*.js', 'src/*.js'],
         }
+      },
+      travis: {
+        options: {
+          browsers: ['PhantomJS'],
+          frameworks: ['jasmine'],
+          files: ['spec/*.js', 'src/*.js'],
+          singleRun: true,
+        }
       }
     }
   });
@@ -86,6 +94,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('test', ['jshint', 'connect', 'jasmine']);
+  grunt.registerTask('test', ['jshint', 'connect', 'karma:travis']);
   grunt.registerTask('default', ['test', 'uglify']);
 };
