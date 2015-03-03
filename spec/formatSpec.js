@@ -123,4 +123,97 @@ describe('format spec', function () {
     });
   });
 
+  describe('formatting days', function () {
+    var monday = new Date(2015, 0, 12);
+    var tuesday = new Date(2015, 0, 13);
+    var wednesday = new Date(2015, 0, 14);
+    var thursday = new Date(2015, 0, 1);
+    var friday = new Date(2015, 0, 2);
+    var saturday = new Date(2015, 0, 3);
+    var sunday = new Date(2015, 0, 4);
+
+    it('should return the day of the month with leading zeros with "d"', function () {
+      expect(monday.format('d')).toBe('12');
+      expect(tuesday.format('d')).toBe('13');
+      expect(wednesday.format('d')).toBe('14');
+      expect(thursday.format('d')).toBe('01');
+      expect(friday.format('d')).toBe('02');
+      expect(saturday.format('d')).toBe('03');
+      expect(sunday.format('d')).toBe('04');
+    });
+
+    it('should return the day of the month without leading zeros with "j"', function () {
+      expect(monday.format('j')).toBe('12');
+      expect(tuesday.format('j')).toBe('13');
+      expect(wednesday.format('j')).toBe('14');
+      expect(thursday.format('j')).toBe('1');
+      expect(friday.format('j')).toBe('2');
+      expect(saturday.format('j')).toBe('3');
+      expect(sunday.format('j')).toBe('4');
+    });
+
+    it('should return a short textual representation of the day with "D"', function () {
+      expect(monday.format('D')).toBe('Mon');
+      expect(tuesday.format('D')).toBe('Tue');
+      expect(wednesday.format('D')).toBe('Wed');
+      expect(thursday.format('D')).toBe('Thu');
+      expect(friday.format('D')).toBe('Fri');
+      expect(saturday.format('D')).toBe('Sat');
+      expect(sunday.format('D')).toBe('Sun');
+    });
+
+    it('should return a full textual representation of the day with "l"', function () {
+      expect(monday.format('l')).toBe('Monday');
+      expect(tuesday.format('l')).toBe('Tuesday');
+      expect(wednesday.format('l')).toBe('Wednesday');
+      expect(thursday.format('l')).toBe('Thursday');
+      expect(friday.format('l')).toBe('Friday');
+      expect(saturday.format('l')).toBe('Saturday');
+      expect(sunday.format('l')).toBe('Sunday');
+    });
+
+    it('should return a ISO-8601 numeric representation of the day of the week with "N"', function () {
+      expect(monday.format('N')).toBe('1');
+      expect(tuesday.format('N')).toBe('2');
+      expect(wednesday.format('N')).toBe('3');
+      expect(thursday.format('N')).toBe('4');
+      expect(friday.format('N')).toBe('5');
+      expect(saturday.format('N')).toBe('6');
+      expect(sunday.format('N')).toBe('7');
+    });
+
+    it('should return an english ordinal suffix for the day of the month with "S"', function () {
+      expect(monday.format('S')).toBe('th');
+      expect(tuesday.format('S')).toBe('th');
+      expect(wednesday.format('S')).toBe('th');
+      expect(thursday.format('S')).toBe('st');
+      expect(friday.format('S')).toBe('nd');
+      expect(saturday.format('S')).toBe('rd');
+      expect(sunday.format('S')).toBe('th');
+    });
+
+    it('should return a numeric representation of the day of the week with "w"', function () {
+      expect(monday.format('w')).toBe('1');
+      expect(tuesday.format('w')).toBe('2');
+      expect(wednesday.format('w')).toBe('3');
+      expect(thursday.format('w')).toBe('4');
+      expect(friday.format('w')).toBe('5');
+      expect(saturday.format('w')).toBe('6');
+      expect(sunday.format('w')).toBe('0');
+    });
+
+    it('should return the day of the year, starting from 0, with "z"', function () {
+      expect(monday.format('z')).toBe('11');
+      expect(tuesday.format('z')).toBe('12');
+      expect(wednesday.format('z')).toBe('13');
+      expect(thursday.format('z')).toBe('0');
+      expect(friday.format('z')).toBe('1');
+      expect(saturday.format('z')).toBe('2');
+      expect(sunday.format('z')).toBe('3');
+
+      expect(new Date(2016, 0, 0).format('z')).toBe('364'); // Last day of 2015
+      expect(new Date(2001, 0, 0).format('z')).toBe('365'); // Last day of 2000 (leap year)
+    });
+  });
+
 });
