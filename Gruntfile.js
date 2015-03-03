@@ -94,6 +94,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('test', ['jshint', 'connect', 'karma:travis']);
+  grunt.registerTask('test', ['jshint', 'karma:travis']);
   grunt.registerTask('default', ['test', 'uglify']);
 };
