@@ -276,4 +276,38 @@ describe('format spec', function () {
     });
   });
 
+  xdescribe('formatting timezones', function () {
+
+    it('should return a timezone identifer with "e"', function () {
+      expect(new Date(2015, 0).format('e')).toBe('CET');
+    });
+
+    it('should return 1 or 0 when given date is in DST or not with "I"', function () {
+      expect(new Date(2015, 0).format('I')).toBe('0');
+      expect(new Date(2015, 3).format('I')).toBe('1'); // April 1st is in DST in France
+    });
+
+    it('should return the difference to Greenwich time without colon with "O"', function () {
+      var date = new Date(2015, 0);
+
+      expect(date.format('O')).toBe(date.format('I') === '1' ? '+0200' : '+0100');
+    });
+
+    it('should return the difference to Greenwich time with colon with "P"', function () {
+      var date = new Date(2015, 0);
+
+      expect(date.format('P')).toBe(date.format('I') === '1' ? '+02:00' : '+01:00');
+    });
+
+    it('should return the timezone abbreviation with "T"', function () {
+      expect(new Date(2015, 0).format('T')).toBe('CET');
+    });
+
+    it('should return the timezone offset is seconds with "Z"', function () {
+      var date = new Date(2015, 0);
+
+      expect(date.format('Z')).toBe(date.format('I') === '1' ? '7200' : '3600');
+    });
+  });
+
 });
