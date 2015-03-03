@@ -214,4 +214,66 @@ describe('format spec', function () {
     });
   });
 
+  describe('formatting times', function () {
+    var amDate = new Date(2015, 0, 1, 9, 59, 3, 12);
+    var pmDate = new Date(2015, 0, 1, 20, 9, 40, 345);
+
+    describe('formating hours', function (){
+
+      it('should return am or pm with "a"', function () {
+        expect(amDate.format('a')).toBe('am');
+        expect(pmDate.format('a')).toBe('pm');
+      });
+
+      it('should return AM or PM with "A"', function () {
+        expect(amDate.format('A')).toBe('AM');
+        expect(pmDate.format('A')).toBe('PM');
+      });
+
+      it('should return a 12-hour representation of an hour without leading zeros', function () {
+        expect(amDate.format('g')).toBe('9');
+        expect(pmDate.format('g')).toBe('8');
+      });
+
+      it('should return a 24-hour representation of an hour without leading zeros', function () {
+        expect(amDate.format('G')).toBe('9');
+        expect(pmDate.format('G')).toBe('20');
+      });
+
+      it('should return a 12-hour representation of an hour with leading zeros', function () {
+        expect(amDate.format('h')).toBe('09');
+        expect(pmDate.format('h')).toBe('08');
+      });
+
+      it('should return a 24-hour representation of an hour with leading zeros', function () {
+        expect(amDate.format('H')).toBe('09');
+        expect(pmDate.format('H')).toBe('20');
+      });
+    });
+
+    describe('formating minutes', function (){
+      it('should return minutes with leading zeros with "i"', function () {
+        expect(amDate.format('i')).toBe('59');
+        expect(pmDate.format('i')).toBe('09');
+      });
+    });
+
+    describe('formating seconds / microseconds', function (){
+      it('should return seconds with leading zeros with "s"', function () {
+        expect(amDate.format('s')).toBe('03');
+        expect(pmDate.format('s')).toBe('40');
+      });
+
+      it('should return microseconds until epoch with "u"', function () {
+        expect(amDate.format('u')).toBe('012000');
+        expect(pmDate.format('u')).toBe('345000');
+      });
+    });
+
+    xit('should return a numeric representation of the Swatch Internet time with "B"', function () {
+      expect(amDate.format('B')).toBe('374');
+      expect(pmDate.format('B')).toBe('798');
+    });
+  });
+
 });
