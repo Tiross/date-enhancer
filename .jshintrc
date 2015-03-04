@@ -1,0 +1,30 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "newcap": true,
+  "undef": true,
+  "bitwise": true,
+  "camelcase": true,
+  "enforceall": true,
+  "freeze": false,
+  "indent": 2,
+  "nocomma": false,
+  "noempty": true,
+  "nonbsp": true,
+  "quotmark": "single",
+  "singleGroups": false,
+  "undef": true,
+  "unused": true,
+  "node": true,
+  "globals": {
+    "it": false,
+    "xit": false,
+    "describe": false,
+    "xdescribe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "expect": false,
+    "spyOn": false
+  }
+}
