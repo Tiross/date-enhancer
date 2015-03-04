@@ -106,5 +106,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma-coveralls');
 
   grunt.registerTask('test', ['jshint', 'karma:travis']);
-  grunt.registerTask('default', ['test', 'uglify']);
+  grunt.registerTask('default', ['test', 'uglify', 'coveralls']);
 };
