@@ -91,6 +91,7 @@ module.exports = function(grunt) {
       options: {
         coverageDir: 'coverage/',
         force: true,
+        recursive: true
       }
     }
   });

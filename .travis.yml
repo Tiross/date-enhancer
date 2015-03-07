@@ -1,9 +1,9 @@
 language: node_js
-
 node_js:
   - "0.10"
-
-before_script:
-  - npm install
-
+sudo: false
+before_script: npm install
 script: grunt --verbose
+addons:
+  code_climate:
+    repo_token: e0e23b61a42dd507c54c9ef35142c56ab76f689747f0f706f82dbff604522d53
