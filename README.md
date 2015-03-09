@@ -3,6 +3,8 @@ Date enhancer
 > The JavaScript Date enhancement
 
 [![Build Status](https://travis-ci.org/Tiross/date-enhancer.svg?branch=master)](https://travis-ci.org/Tiross/date-enhancer)
+[![Coverage Status](https://coveralls.io/repos/Tiross/date-enhancer/badge.svg?branch=master)](https://coveralls.io/r/Tiross/date-enhancer?branch=master)
+
 
 How to use it ?
 ------------------
