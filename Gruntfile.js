@@ -69,20 +69,32 @@ module.exports = function(grunt) {
     },
 
     karma: {
+      options: {
+        frameworks: ['jasmine'],
+        files: ['spec/*.js', 'src/*.js'],
+      },
       unit: {
-        options: {
-          browsers: ['PhantomJS', 'Safari', 'Firefox'],
-          frameworks: ['jasmine'],
-          files: ['spec/*.js', 'src/*.js'],
-        }
+        browsers: ['PhantomJS', 'Safari', 'Firefox'],
       },
       travis: {
-        options: {
-          browsers: ['PhantomJS'],
-          frameworks: ['jasmine'],
-          files: ['spec/*.js', 'src/*.js'],
-          singleRun: true,
-        }
+        browsers: ['PhantomJS', 'Firefox'],
+        singleRun: true,
+        reporters: ['coverage'],
+        coverageReporter: {
+          type: "lcov",
+          dir: "coverage/"
+        },
+        preprocessors: {
+          "src/*js": "coverage"
+        },
+      }
+    },
+
+    coveralls: {
+      options: {
+        coverageDir: 'coverage/',
+        force: true,
+        recursive: true
       }
     }
   });
@@ -93,7 +105,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-karma-coveralls');
 
   grunt.registerTask('test', ['jshint', 'karma:travis']);
-  grunt.registerTask('default', ['test', 'uglify']);
+  grunt.registerTask('default', ['test', 'uglify', 'coveralls']);
 };
