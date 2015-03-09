@@ -270,13 +270,13 @@ describe('format spec', function () {
       });
     });
 
-    xit('should return a numeric representation of the Swatch Internet time with "B"', function () {
+    it('should return a numeric representation of the Swatch Internet time with "B"', function () {
       expect(amDate.format('B')).toBe('374');
       expect(pmDate.format('B')).toBe('798');
     });
   });
 
-  xdescribe('formatting timezones', function () {
+  describe('formatting timezones', function () {
 
     it('should return a timezone identifer with "e"', function () {
       expect(new Date(2015, 0).format('e')).toBe('CET');
@@ -313,11 +313,11 @@ describe('format spec', function () {
   describe('formatting full dates and times', function () {
     var date = new Date(Date.UTC(2015, 0, 1, 11, 30, 12));
 
-    xit('should return a ISO 8601 representation of date and time with "c"', function () {
+    it('should return a ISO 8601 representation of date and time with "c"', function () {
       expect(date.format('c')).toBe('2015-01-01T12:30:12+01:00');
     });
 
-    xit('should return a representation of date and time following RFC 2822 with "r"', function () {
+    it('should return a representation of date and time following RFC 2822 with "r"', function () {
       expect(date.format('r')).toBe('Thu, 1 Jan 2015 12:30:12 +0100');
     });
 
@@ -329,7 +329,7 @@ describe('format spec', function () {
   describe('formatting with composed pattern', function () {
     var date = new Date(2015, 0, 1, 11, 30, 12);
 
-    xit('should return "le 01/01/2015 à 11:30:12"', function () {
+    it('should return "le 01/01/2015 à 11:30:12"', function () {
       expect(date.format('\\l\\e d/m/Y \\à H:i:s')).toBe('le 01/01/2015 à 11:30:12');
     });
 
