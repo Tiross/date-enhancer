@@ -5,6 +5,7 @@ sudo: false
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - cp /usr/share/zoneinfo/Europe/Paris /etc/localtime
 script: grunt --verbose
 addons:
   code_climate:
