@@ -77,7 +77,7 @@ module.exports = function(grunt) {
         browsers: ['PhantomJS', 'Safari', 'Firefox'],
       },
       travis: {
-        browsers: ['PhantomJS'],
+        browsers: ['PhantomJS', 'Firefox'],
         singleRun: true,
         reporters: ['coverage'],
         coverageReporter: {
