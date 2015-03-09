@@ -84,6 +84,9 @@ module.exports = function(grunt) {
           type: "lcov",
           dir: "coverage/"
         },
+        preprocessors: {
+          "src/*js": "coverage"
+        },
       }
     },
 
