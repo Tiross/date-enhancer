@@ -24,13 +24,13 @@ describe('format spec', function () {
     it('should return the difference to Greenwich time without colon with "O"', function () {
       var date = new Date(2015, 0);
 
-      expect(date.format('O')).toBe(date.format('I') === '1' ? '1030' : '0930');
+      expect(date.format('O')).toBe(date.format('I') === '1' ? '+1030' : '+0930');
     });
 
     it('should return the difference to Greenwich time with colon with "P"', function () {
       var date = new Date(2015, 0);
 
-      expect(date.format('P')).toBe(date.format('I') === '1' ? '10:30' : '09:30');
+      expect(date.format('P')).toBe(date.format('I') === '1' ? '+10:30' : '+09:30');
     });
 
     it('should return the timezone abbreviation with "T"', function () {
