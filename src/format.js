@@ -118,8 +118,8 @@
         },
         B: function () { // swatch internet time
           var hours   = (this.getUTCHours() + 1) * 3600;
-          var minutes = (this.getUTCMinutes() + 1) * 60;
-          var seconds = this.getUTCSeconds() + 1;
+          var minutes = this.getUTCMinutes() * 60;
+          var seconds = this.getUTCSeconds();
 
           return leadingZeros(Math.floor((seconds + minutes + hours) / 86.4), 3);
         },
