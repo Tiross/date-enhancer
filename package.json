@@ -1,7 +1,7 @@
 {
   "name": "date-enhancer",
   "version": "0.0.1",
-  "description": "JavaScript Date enhancement",
+  "description": "The JavaScript Date enhancement",
   "repository": {
     "type": "git",
     "url": "git://github.com/Tiross/date-enhancer.git"
