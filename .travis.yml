@@ -5,6 +5,7 @@ env:
   - tz="Europe/Paris"
   - tz="UTC"
   - tz="Australia/Adelaide"
+  - tz="America/Montreal"
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
