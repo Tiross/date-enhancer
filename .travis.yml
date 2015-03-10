@@ -10,7 +10,7 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sudo cp /usr/share/zoneinfo/$tz /etc/localtime
-script: grunt --verbose
+script: grunt travis --verbose
 addons:
   code_climate:
     repo_token: e0e23b61a42dd507c54c9ef35142c56ab76f689747f0f706f82dbff604522d53
