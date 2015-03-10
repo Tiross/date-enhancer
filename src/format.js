@@ -160,7 +160,7 @@
         },
         P: function () { // Diff to GMT +00:00 style
           var offset = this.getTimezoneOffset();
-          var sign = offset < 0 ? '+' : '-';
+          var sign = offset <= 0 ? '+' : '-';
 
           offset = Math.abs(offset);
 
