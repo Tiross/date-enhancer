@@ -71,7 +71,7 @@ module.exports = function(grunt) {
     karma: {
       options: {
         frameworks: ['jasmine'],
-        files: ['spec/*.js', 'src/*.js', 'spec/env/' + (process.env.tz ? process.env.tz : 'Europe/Paris') + '.js'],
+        files: ['spec/*.js', 'src/*.js', 'spec/env/' + (process.env.tz ? process.env.tz : 'unknown') + '.js'],
       },
       unit: {
         browsers: ['PhantomJS', 'Safari', 'Firefox'],
