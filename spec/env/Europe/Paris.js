@@ -3,10 +3,12 @@ describe('format spec', function () {
   describe('formatting times', function () {
     var amDate = new Date(2015, 0, 1, 9, 59, 3, 12);
     var pmDate = new Date(2015, 0, 1, 20, 9, 40, 345);
+    var sit001 = new Date(2015, 0, 1, 0, 1, 30);
 
     it('should return a numeric representation of the Swatch Internet time with "B"', function () {
       expect(amDate.format('B')).toBe('416');
       expect(pmDate.format('B')).toBe('840');
+      expect(sit001.format('B')).toBe('001');
     });
   });
 
