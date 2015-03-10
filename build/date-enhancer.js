@@ -93,7 +93,10 @@
                     return this.format("a").toUpperCase();
                 },
                 B: function() {
-                    return Math.floor((this.getUTCSeconds() + this.getUTCMinutes() * 60 + this.getUTCHours() * 3600) / 86.4);
+                    var hours = (this.getUTCHours() + 1) * 3600;
+                    var minutes = this.getUTCMinutes() * 60;
+                    var seconds = this.getUTCSeconds();
+                    return leadingZeros(Math.floor((seconds + minutes + hours) / 86.4) % 1e3, 3);
                 },
                 g: function() {
                     return this.getHours() % 12;
@@ -130,7 +133,7 @@
                 },
                 P: function() {
                     var offset = this.getTimezoneOffset();
-                    var sign = offset < 0 ? "+" : "-";
+                    var sign = offset <= 0 ? "+" : "-";
                     offset = Math.abs(offset);
                     return sign + leadingZeros(Math.floor(offset / 60)) + ":" + leadingZeros(offset % 60);
                 },
