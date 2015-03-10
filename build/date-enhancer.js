@@ -130,7 +130,7 @@
                 },
                 P: function() {
                     var offset = this.getTimezoneOffset();
-                    var sign = offset < 0 ? "+" : "-";
+                    var sign = offset <= 0 ? "+" : "-";
                     offset = Math.abs(offset);
                     return sign + leadingZeros(Math.floor(offset / 60)) + ":" + leadingZeros(offset % 60);
                 },
