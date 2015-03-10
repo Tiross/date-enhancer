@@ -117,7 +117,11 @@
           return this.format('a').toUpperCase();
         },
         B: function () { // swatch internet time
-          return Math.floor((this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600) / 86.4);
+          var hours   = (this.getUTCHours() + 1) * 3600;
+          var minutes = (this.getUTCMinutes() + 1) * 60;
+          var seconds = this.getUTCSeconds() + 1;
+
+          return leadingZeros(Math.floor((seconds + minutes + hours) / 86.4), 3);
         },
         g: function () { // Hours, 12h, without leading zeros
           return this.getHours() % 12;
