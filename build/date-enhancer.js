@@ -93,7 +93,7 @@
                     return this.format("a").toUpperCase();
                 },
                 B: function() {
-                    return Math.floor((this.getUTCSeconds() + this.getUTCMinutes() * 60 + this.getUTCHours() * 3600) / 86.4);
+                    return Math.floor((this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600) / 86.4);
                 },
                 g: function() {
                     return this.getHours() % 12;

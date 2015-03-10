@@ -5,8 +5,8 @@ describe('format spec', function () {
     var pmDate = new Date(2015, 0, 1, 20, 9, 40, 345);
 
     it('should return a numeric representation of the Swatch Internet time with "B"', function () {
-      expect(amDate.format('B')).toBe('374');
-      expect(pmDate.format('B')).toBe('798');
+      expect(amDate.format('B')).toBe('416');
+      expect(pmDate.format('B')).toBe('840');
     });
   });
 
