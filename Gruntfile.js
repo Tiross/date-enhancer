@@ -72,7 +72,6 @@ module.exports = function(grunt) {
       options: {
         frameworks: ['jasmine'],
         files: ['spec/*.js', 'src/*.js', 'spec/env/' + (process.env.tz ? process.env.tz : 'Europe/Paris') + '.js'],
-        logLevel: 'DEBUG',
       },
       unit: {
         browsers: ['PhantomJS', 'Safari', 'Firefox'],
@@ -80,7 +79,7 @@ module.exports = function(grunt) {
       travis: {
         browsers: ['PhantomJS', 'Firefox'],
         singleRun: true,
-        reporters: ['coverage'],
+        reporters: ['progress', 'coverage'],
         coverageReporter: {
           type: "lcov",
           dir: "coverage/"
