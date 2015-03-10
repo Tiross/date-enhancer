@@ -121,7 +121,7 @@
           var minutes = this.getUTCMinutes() * 60;
           var seconds = this.getUTCSeconds();
 
-          return leadingZeros(Math.floor((seconds + minutes + hours) / 86.4), 3);
+          return leadingZeros(Math.floor((seconds + minutes + hours) / 86.4) % 1000, 3);
         },
         g: function () { // Hours, 12h, without leading zeros
           return this.getHours() % 12;
