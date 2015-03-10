@@ -8,7 +8,7 @@ describe('format spec', function () {
 
     it('should return 1 or 0 when given date is in DST or not with "I"', function () {
       expect(new Date(2015, 0).format('I')).toBe('0');
-      expect(new Date(2015, 3).format('I')).toBe('O'); // no DST in UTC
+      expect(new Date(2015, 3).format('I')).toBe('0'); // no DST in UTC
     });
 
     it('should return the difference to Greenwich time without colon with "O"', function () {
