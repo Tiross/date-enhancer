@@ -269,11 +269,6 @@ describe('format spec', function () {
         expect(pmDate.format('u')).toBe('345000');
       });
     });
-
-    xit('should return a numeric representation of the Swatch Internet time with "B"', function () {
-      expect(amDate.format('B')).toBe('374');
-      expect(pmDate.format('B')).toBe('798');
-    });
   });
 
   describe('formatting full dates and times', function () {

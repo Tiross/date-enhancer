@@ -1,5 +1,15 @@
 describe('format spec', function () {
 
+  describe('formatting times', function () {
+    var amDate = new Date(2015, 0, 1, 9, 59, 3, 12);
+    var pmDate = new Date(2015, 0, 1, 20, 9, 40, 345);
+
+    it('should return a numeric representation of the Swatch Internet time with "B"', function () {
+      expect(amDate.format('B')).toBe('457');
+      expect(pmDate.format('B')).toBe('881');
+    });
+  });
+
   describe('formatting timezones', function () {
 
     it('should return a timezone identifer with "e"', function () {
