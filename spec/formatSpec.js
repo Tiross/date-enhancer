@@ -1,4 +1,4 @@
-describe('format spec', function () {
+describe('format spec,', function () {
 
   describe('formatting years', function () {
     it('should return a full represention of a year on 4 digits with "Y"', function () {
@@ -115,9 +115,9 @@ describe('format spec', function () {
 
   describe('formatting weeks', function () {
     it('should return th number of the week with "W"', function () {
-      expect(new Date('2015-01-01').format('W')).toBe('1');
-      expect(new Date('2015-12-31').format('W')).toBe('53');
-      expect(new Date('2016-01-01').format('W')).toBe('53');
+      expect(new Date(2015, 0, 1).format('W')).toBe('1');
+      expect(new Date(2015, 11, 31).format('W')).toBe('53');
+      expect(new Date(2016, 0, 1).format('W')).toBe('53');
     });
   });
 
