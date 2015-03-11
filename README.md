@@ -4,6 +4,7 @@ Date enhancer
 
 [![Build Status](https://travis-ci.org/Tiross/date-enhancer.svg?branch=master)](https://travis-ci.org/Tiross/date-enhancer)
 [![Coverage Status](https://coveralls.io/repos/Tiross/date-enhancer/badge.svg?branch=master)](https://coveralls.io/r/Tiross/date-enhancer?branch=master)
+[![Code Climate](https://codeclimate.com/github/Tiross/date-enhancer/badges/gpa.svg)](https://codeclimate.com/github/Tiross/date-enhancer)
 
 
 How to use it ?
