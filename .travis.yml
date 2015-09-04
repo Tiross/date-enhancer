@@ -10,7 +10,7 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sudo cp /usr/share/zoneinfo/$tz /etc/localtime
-  - npm install -g codeclimate-test-reporter
+  - npm install -g grunt-cli codeclimate-test-reporter
 script: grunt travis --verbose
 after_script:
   - cat coverage/*/lcov.info | codeclimate
