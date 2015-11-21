@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.2
+
+* Updating dependencies
+* Adding more NodeJS versions in unit tests
+
 ## v1.0.1
 
 * Tests fails with America/Montreal
