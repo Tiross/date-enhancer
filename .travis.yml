@@ -1,19 +1,27 @@
 language: node_js
 node_js:
+  - "4.1"
+  - "4.0"
+  - "0.12"
   - "0.10"
+
 env:
   - tz="Europe/Paris"
   - tz="UTC"
   - tz="Australia/Adelaide"
   - tz="America/Montreal"
+
+addons:
+  code_climate:
+    repo_token: c0d1e25765b513353df0a04a2f9c5b851cfd05782118e88e1380642cd87fa772
+
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sudo cp /usr/share/zoneinfo/$tz /etc/localtime
   - npm install -g grunt-cli codeclimate-test-reporter
+
 script: grunt travis --verbose
+
 after_script:
   - cat coverage/*/lcov.info | codeclimate
-addons:
-  code_climate:
-    repo_token: c0d1e25765b513353df0a04a2f9c5b851cfd05782118e88e1380642cd87fa772
