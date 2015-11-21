@@ -13,7 +13,7 @@ describe('format spec', function () {
   describe('formatting timezones', function () {
 
     it('should return a timezone identifer with "e"', function () {
-      expect(new Date(2015, 0).format('e')).toBe('EDT');
+      expect(new Date(2015, 0, 1).format('e')).toBe('EDT');
     });
 
     it('should return 1 or 0 when given date is in DST or not with "I"', function () {
@@ -34,7 +34,7 @@ describe('format spec', function () {
     });
 
     it('should return the timezone abbreviation with "T"', function () {
-      expect(new Date(2015, 0).format('T')).toBe('EDT');
+      expect(new Date(2015, 0, 1).format('T')).toBe('EDT');
     });
 
     it('should return the timezone offset is seconds with "Z"', function () {
